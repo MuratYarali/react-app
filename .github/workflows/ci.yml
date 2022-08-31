@@ -57,11 +57,7 @@ jobs:
 
       - name: Create a Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          sudo npm cache clean -f
-          sudo npm install -g n
-          sudo n stable
-          npx semantic-release
+        run: semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
