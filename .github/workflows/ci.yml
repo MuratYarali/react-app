@@ -57,7 +57,10 @@ jobs:
 
       - name: Create a Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: npx semantic-release
+        run: |
+          curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+          sudo apt-get install -y nodejs 
+          npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
