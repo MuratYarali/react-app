@@ -57,7 +57,7 @@ jobs:
 
       - name: Create a Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: semantic-release
+        run: npx -p node@lts -c "npx semantic-release"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
