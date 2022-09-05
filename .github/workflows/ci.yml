@@ -78,7 +78,7 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: npx surge --project ./build --domain abashed-insurance.surge.sh
       
-      - name: Upload Covarage Report
+      - name: Upload Covarage Reportt
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: npx codecov
         env:
