@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest 
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
 
       - name: Cache node_modules
-        uses: actions/cache@v1 # This action allows caching dependencies and build outputs to improve workflow execution time
+        uses: actions/cache@v3 # This action allows caching dependencies and build outputs to improve workflow execution time
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -22,9 +22,9 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Uses NodeJS
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: "12.x"
+          node-version: 16
       
       - run: npm ci # Similar command to npm install, except it's meant to be used in automated environments
 
@@ -37,7 +37,7 @@ jobs:
           CI: true
 
       - name: Upload test coveraage
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: code-coverage
           path: coverage
@@ -48,7 +48,7 @@ jobs:
       
       - name: Upload build folder
         if: github.event_name == 'push'
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: build
           path: build
