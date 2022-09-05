@@ -76,7 +76,7 @@ jobs:
       
       - name: Deploy to Production
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: npx surge --project ./build --domain enormous-poison-prod.surge.sh
+        run: npx surge --project ./build --domain previous-truck.surge.sh
       
       - name: Upload Covarage Report
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
