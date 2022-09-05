@@ -4,4 +4,4 @@ COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT [ "/entrypoint.sh" ]
 
-CMD ['dwd', 'dwd']
+# CMD ['dwd', 'dwd']
